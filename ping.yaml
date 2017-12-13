@@ -1,9 +1,6 @@
-# Test we can logon to 'webservers' and execute python with json lib.
-# ansible webservers -m ping
-
-# Example from an Ansible Playbook
-- ping:
-
-# Induce an exception to see what happens
-- ping:
-    data: crash
+---
+- name: This is a hello-world example
+  hosts: 25.19.95.227
+  tasks:
+  - name: Create a file called '/tmp/testfile.txt' with the content 'hello world'.
+    copy: content="hello world\n" dest=/tmp/testfile.txt
