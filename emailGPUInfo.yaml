@@ -12,3 +12,4 @@
         to: Cameron Johnson <cameronrossjohnson@gmail.com>
         subject: Miner GPU Info
         body: "This is a test email. {{ \n\ngpuInfo }}"
+      delegate_to: localhost
