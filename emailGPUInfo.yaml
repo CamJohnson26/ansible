@@ -2,10 +2,16 @@
 - name: Send GPU Info to cameronrossjohnson@gmail.com
   hosts: Miners
   tasks:
+    - name: run cmd
+      shell: nvidia-smi
+      register: gpuInfo
+
   - mail:
       host: smtp.gmail.com
       port: 587
+      username: cameron@25.13.82.123@gmail.com
+      password: placeholder
       to: Cameron Johnson <cameronrossjohnson@gmail.com>
       subject: Miner GPU Info
-      body: "This is a test email."
+      body: "This is a test email. {{ \n\ngpuInfo }}"
     delegate_to: localhost
