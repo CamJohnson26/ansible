@@ -8,9 +8,6 @@
     - mail:
         host: gmail-smtp-in.l.google.com
         port: 25
-        username: cameron@25.13.82.123@gmail.com
-        password: placeholder
-        secure: never
         to: Cameron Johnson <cameronrossjohnson@gmail.com>
         subject: Miner GPU Info
         body: "This is a test email. {{ \n\ngpuInfo }}"
