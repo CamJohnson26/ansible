@@ -3,6 +3,9 @@
   hosts: Miners
   tasks:
     - name: run cmd
+      shell: nvidia-smi
+      register: gpuState
+    - name: run cmd
       shell: nvidia-smi -L
       register: gpuList
     - name: run cmd
@@ -17,5 +20,5 @@
         from: awx@25.13.82.123.com
         to: Cameron Johnson <cameronrossjohnson@gmail.com>
         subject: Miner GPU Info
-        body: "This is a test email. {{\"%s\" | format(gpuList.stdout) }} \n\n {{\"%s\" | format(gpuInfoBusToGuid.stdout) }} \n\n {{\"%s\" | format(gpuInfoBusToBrand.stdout) }}"
+        body: "GPU Information. \n\nGPU State\n {{\"%s\" | format(gpuState.stdout)}} \n\nGPU List\n{{\"%s\" | format(gpuList.stdout) }} \n\nGPU Bus to GUID\n {{\"%s\" | format(gpuInfoBusToGuid.stdout) }} \n\nGPU Bus to Brand\n {{\"%s\" | format(gpuInfoBusToBrand.stdout) }}"
       delegate_to: localhost
