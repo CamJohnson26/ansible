@@ -3,13 +3,19 @@
   hosts: Miners
   tasks:
     - name: run cmd
-      shell: nvidia-smi
-      register: gpuInfo
+      shell: nvidia-smi -L
+      register: gpuList
+    - name: run cmd
+      shell: nvidia-smi -q | grep -E 'GPU UUID|Bus Id'
+      register: gpuInfoBusToGuid
+    - name: run cmd
+      shell: lspci -v | grep -E 'Subsystem|VGA compatible'
+      register: gpuInfoBusToBrand
     - mail:
         host: aspmx.l.google.com
         port: 25
         from: awx@25.13.82.123.com
         to: Cameron Johnson <cameronrossjohnson@gmail.com>
         subject: Miner GPU Info
-        body: "This is a test email. {{ \n\ngpuInfo }}"
+        body: "This is a test email. {{% gpuList %}} \n\n {{% gpuInfoBusToGuid %}} \n\n {{% gpuInfoBusToBrand %}}"
       delegate_to: localhost
