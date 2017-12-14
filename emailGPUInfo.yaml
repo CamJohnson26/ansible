@@ -5,9 +5,7 @@
   - mail:
       host: smtp.gmail.com
       port: 587
-      username: ansible@25.13.82.123.com
-      password: mypassword
       to: Cameron Johnson <cameronrossjohnson@gmail.com>
       subject: Miner GPU Info
-      body: "This is a test email. {{}}"
+      body: "This is a test email."
     delegate_to: localhost
