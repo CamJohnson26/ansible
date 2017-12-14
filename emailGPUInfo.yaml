@@ -6,9 +6,8 @@
       shell: nvidia-smi
       register: gpuInfo
     - mail:
-        host: gmail-smtp-in.l.google.com
+        host: aspmx.l.google.com
         port: 25
         to: Cameron Johnson <cameronrossjohnson@gmail.com>
         subject: Miner GPU Info
         body: "This is a test email. {{ \n\ngpuInfo }}"
-      delegate_to: localhost
