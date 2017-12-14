@@ -17,5 +17,5 @@
         from: awx@25.13.82.123.com
         to: Cameron Johnson <cameronrossjohnson@gmail.com>
         subject: Miner GPU Info
-        body: "This is a test email. {{\"%s\" | format(gpuList) }} \n\n {{\"%s\" | format(gpuInfoBusToGuid) }} \n\n {{\"%s\" | format(gpuInfoBusToBrand) }}"
+        body: "This is a test email. {{\"%s\" | format(gpuList.stdout) }} \n\n {{\"%s\" | format(gpuInfoBusToGuid.stdout) }} \n\n {{\"%s\" | format(gpuInfoBusToBrand.stdout) }}"
       delegate_to: localhost
