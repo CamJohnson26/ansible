@@ -3,5 +3,5 @@
   hosts: Miners
   tasks:
     - name: run cmd
-      shell: if cd ~/blocrypt; then git pull; else git clone https://github.com/CamJohnson26/blocrypt blockrypt; fi
+      shell: if cd ~/blocrypt; then git pull; else git clone https://github.com/CamJohnson26/blocrypt blocrypt; fi
       delegate_to: localhost
