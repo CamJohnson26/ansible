@@ -1,0 +1,15 @@
+---
+- name: Send Hashrate to cameronrossjohnson@gmail.com
+  hosts: Miners
+  tasks:
+    - name: run cmd
+      shell: tail -100 Desktop/mining.log
+      register: miningLog
+    - mail:
+        host: aspmx.l.google.com
+        port: 25
+        from: awx@25.13.82.123.com
+        to: Cameron Johnson <cameronrossjohnson@gmail.com>
+        subject: Miner Hash Rate
+        body: "{{\"%s\" | format(miningLog.stdout)}}"
+      delegate_to: localhost
