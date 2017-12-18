@@ -1,0 +1,7 @@
+---
+- name: Download shell scripts locally
+  hosts: Miners
+  tasks:
+    - name: run cmd
+      shell: if cd ~/blocrypt; then git pull; else git clone https://github.com/CamJohnson26/blocrypt blockrypt; fi
+      delegate_to: localhost
