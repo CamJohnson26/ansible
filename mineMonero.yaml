@@ -1,0 +1,10 @@
+---
+- name: Kill the other miners
+  import_playbook: stopMining.yaml
+  
+- name: Send Hashrate to cameronrossjohnson@gmail.com
+  hosts: Miners
+  tasks:
+    - name: run cmd
+      shell: nohup sudo ~/Desktop/start-monero.sh > ~/Desktop/mining.log 2>&1 &
+      delegate_to: localhost

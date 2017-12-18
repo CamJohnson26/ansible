@@ -1,0 +1,7 @@
+---
+- name: Send Hashrate to cameronrossjohnson@gmail.com
+  hosts: Miners
+  tasks:
+    - name: run cmd
+      shell: killall ccminer
+      delegate_to: localhost
